@@ -45,7 +45,7 @@ const startMessage = `
 
 @areetionedbot
 
-@areetionedbot
+@areetionebot
 
 👉 Utilise les boutons ci-dessous pour m'ajouter à ton groupe ou canal !
 `;
