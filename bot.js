@@ -43,7 +43,7 @@ const startMessage = `
 @areetionbbot
 @areetioncbot
 
-@areetiondbot
+@areetionedbot
 
 @areetionedbot
 
