@@ -35,7 +35,7 @@ const emojis = ['👍', '❤️', '🔥', '👏', '💯'];
 
 // Message de démarrage
 const startMessage = `
-👋 Salut *UserName* ! Je suis un bot de réactions automatiques power by kristinai_oneta.
+👋 Salut *UserName* ! Je suis un bot de réactions automatiques power by kristinai oneta
 
 ✨ Envoie un message dans un groupe ou un canal où je suis administrateur, et je réagirai avec un emoji aléatoire.
 @areetionabot
@@ -46,6 +46,7 @@ const startMessage = `
 @areetiondbot
 
 @areetionedbot
+
 👉 Utilise les boutons ci-dessous pour m'ajouter à ton groupe ou canal !
 `;
 
