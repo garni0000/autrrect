@@ -1,3 +1,4 @@
+
 import 'dotenv/config';
 import express from 'express';
 import fetch from 'node-fetch';
@@ -31,11 +32,14 @@ bots.forEach((bot, index) => {
 });
 
 // Liste des emojis disponibles
-const emojis = ['👍', '❤️', '🔥', '👏', '💯'];
+const emojis = ['👍', '❤️', '🔥', '👏', '🤩', '🎉', '💯'];
+
+// Délais aléatoires entre 1 et 10 secondes pour humaniser
+const getRandomDelay = () => Math.floor(Math.random() * 10000) + 1000;
 
 // Message de démarrage
 const startMessage = `
-👋 Salut *UserName* ! Je suis un bot de réactions automatiques power by kristinai oneta
+👋 Salut *UserName* ! Je suis un bot de réactions automatiques.
 
 ✨ Envoie un message dans un groupe ou un canal où je suis administrateur, et je réagirai avec un emoji aléatoire.
 @areetionabot
@@ -46,7 +50,6 @@ const startMessage = `
 @areetionedbot
 
 @areetionebot
-
 👉 Utilise les boutons ci-dessous pour m'ajouter à ton groupe ou canal !
 `;
 
@@ -70,6 +73,7 @@ bots.forEach(bot => {
                 const chatId = message.chat.id;
                 const messageId = message.message_id;
                 const text = message.text || '';
+                const hasMedia = message.photo || message.video || message.poll;
 
                 // Commande /start
                 if (text === '/start' || text === `/start@${bot.username}`) {
@@ -83,7 +87,7 @@ bots.forEach(bot => {
                             { text: "Contact the owner", url: "https://t.me/medatt00" },
                         ],
                         [
-                            { text: "💝 Support Us - Donate 🤝", url: "https://t.me/areetionabot?start=donate" }
+                            { text: "💝 Support Us - Donate 🤝", url: "https://t.me/bot1reactbot?start=donate" }
                         ]
                     ]);
                 }
@@ -99,10 +103,18 @@ bots.forEach(bot => {
                     await sendInvoice(bot.token, chatId, "Donate to Auto Reaction Bot ✨", "Merci pour votre soutien !", '{}', 'donate', 'XTR', [{ label: 'Pay ⭐️1', amount: 1 }]);
                 }
 
-                // Réaction aléatoire aux autres messages
-                else if (text) {
+                // Réaction aléatoire aux autres messages (texte ou média)
+                else if (text || hasMedia) {
                     const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-                    await sendReaction(bot.token, chatId, messageId, randomEmoji);
+                    
+                    // Ajout d'un délai aléatoire avant de réagir
+                    setTimeout(async () => {
+                        try {
+                            await sendReaction(bot.token, chatId, messageId, randomEmoji);
+                        } catch (error) {
+                            console.error('Erreur lors de l\'envoi de la réaction après délai:', error);
+                        }
+                    }, getRandomDelay());
                 }
             }
 
@@ -229,4 +241,3 @@ app.listen(port, () => {
     console.log(`🚀 Serveur en écoute sur le port ${port}`);
     setupWebhooks();
 });
-
