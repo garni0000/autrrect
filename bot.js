@@ -83,7 +83,7 @@ bots.forEach(bot => {
                             { text: "Contact the owner", url: "https://t.me/medatt00" },
                         ],
                         [
-                            { text: "💝 Support Us - Donate 🤝", url: "https://t.me/bot1reactbot?start=donate" }
+                            { text: "💝 Support Us - Donate 🤝", url: "https://t.me/areetionabot?start=donate" }
                         ]
                     ]);
                 }
@@ -229,3 +229,4 @@ app.listen(port, () => {
     console.log(`🚀 Serveur en écoute sur le port ${port}`);
     setupWebhooks();
 });
+
