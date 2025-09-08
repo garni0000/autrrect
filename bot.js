@@ -42,14 +42,15 @@ const startMessage = `
 👋 Salut *UserName* ! Je suis un bot de réactions automatiques.
 
 ✨ Envoie un message dans un groupe ou un canal où je suis administrateur, et je réagirai avec un emoji aléatoire.
-@areetionabot
+@Reactionxaabot
 
-@areetionbbot
-@areetioncbot
+@breactionxa
 
-@areetionedbot
+@Dbreactioncbot
 
-@areetionebot
+@Dbreactiondbot
+
+@Dbreactionebot
 👉 Utilise les boutons ci-dessous pour m'ajouter à ton groupe ou canal !
 `;
 
@@ -87,7 +88,7 @@ bots.forEach(bot => {
                             { text: "Contact the owner", url: "https://t.me/medatt00" },
                         ],
                         [
-                            { text: "💝 Support Us - Donate 🤝", url: "https://t.me/areetionabot?start=donate" }
+                            { text: "💝 Support Us - Donate 🤝", url: "https://t.me/bot1reactbot?start=donate" }
                         ]
                     ]);
                 }
@@ -241,4 +242,3 @@ app.listen(port, () => {
     console.log(`🚀 Serveur en écoute sur le port ${port}`);
     setupWebhooks();
 });
-
